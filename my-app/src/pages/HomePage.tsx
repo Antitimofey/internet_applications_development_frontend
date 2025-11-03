@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { Link } from "react-router-dom";
-import { ROUTES } from "./Routes";
+import { ROUTES } from "../../Routes";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
 export const HomePage: FC = () => {
