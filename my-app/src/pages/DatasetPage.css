@@ -1,0 +1,141 @@
+/* Основной контейнер страницы */
+.dataset-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Загрузчик */
+.dataset-page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+/* Сообщение об ошибке */
+.dataset-page-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  text-align: center;
+}
+
+.dataset-page-error h1 {
+  font-family: "Inter-Regular", Helvetica;
+  color: #666;
+  font-size: 24px;
+}
+
+/* Контейнер датасета */
+.dataset-container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+}
+
+/* Карточка деталей датасета */
+.dataset-card-detailed {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+/* Изображение датасета */
+.dataset-image {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Информация о датасете */
+.dataset-info {
+  padding: 1rem;
+}
+
+.dataset-title {
+  font-family: "Inter-Regular", Helvetica;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Характеристики */
+.dataset-characteristics {
+  margin-top: 1.5rem;
+}
+
+.dataset-characteristics h3 {
+  font-family: "Inter-Regular", Helvetica;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #de231e;
+  padding-bottom: 0.5rem;
+}
+
+.characteristic-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.characteristic-item:last-child {
+  border-bottom: none;
+}
+
+.char-label {
+  font-family: "Inter-Regular", Helvetica;
+  color: #666;
+  font-size: 14px;
+  flex: 1;
+}
+
+.char-value {
+  font-family: "Inter-Regular", Helvetica;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+  flex: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .dataset-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .dataset-card-detailed {
+    padding: 1rem;
+  }
+  
+  .dataset-image {
+    height: 300px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .dataset-title {
+    font-size: 20px;
+  }
+  
+  .characteristic-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .char-value {
+    text-align: left;
+  }
+}

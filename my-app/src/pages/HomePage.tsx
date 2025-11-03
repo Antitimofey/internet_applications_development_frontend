@@ -17,7 +17,7 @@ export const HomePage: FC = () => {
               Добро пожаловать в N-Видео! Здесь вы можете подобрать модели для
               машинного обучения и датасеты к ним.
             </p>
-            <Link to={ROUTES.ALBUMS}>
+            <Link to={ROUTES.DATASETS}>
               <Button variant="primary">Просмотреть модели</Button>
             </Link>
           </Col>

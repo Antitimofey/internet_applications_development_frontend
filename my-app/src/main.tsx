@@ -5,9 +5,6 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 
-// import StartPage from './student.tsx'
-// import ITunesPage from './pages/ITunesPage.tsx'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 

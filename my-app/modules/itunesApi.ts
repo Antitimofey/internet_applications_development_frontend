@@ -24,3 +24,26 @@ export const getAlbumById = async (
     (response) => response.json()
   );
 };
+
+
+
+// =============================  datasetsApi.ts  ==================================
+
+import type { Dataset } from "../components/DatasetCard/DatasetCard";
+
+// Базовый URL для API (будет проксироваться через Vite)
+const API_BASE = '/api';
+
+
+export const getDatasets = async (name = ""): Promise<Dataset[]> => {
+  return fetch(`${API_BASE}/datasets/?search-model=${name}`)
+  .then((response) => response.json());
+};
+
+export const getDatasetById = async (
+  id: number | string
+): Promise<Dataset> => {
+  return fetch(`${API_BASE}/datasets/${id}/`).then(
+    (response) => response.json()
+  );
+};

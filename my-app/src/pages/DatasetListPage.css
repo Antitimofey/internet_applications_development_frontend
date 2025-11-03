@@ -8,6 +8,11 @@
     filter: blur(8px);
 }
 
+.datasets-row {
+    display: flex;
+    align-items: center !important;
+}
+
 @media (max-width: 600px) {
     .container{
         min-width: auto;
