@@ -1,4 +1,5 @@
-import "./AlbumPage.css";
+import "./DatasetsPage.css";
+import './metacss.css';
 import type { FC } from 'react';
 import {useEffect, useState } from "react";
 import { Col, Row, Spinner, Image } from "react-bootstrap";
@@ -32,7 +33,7 @@ export const AlbumPage: FC = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="full-page-container">
       <BreadCrumbs
         crumbs={[
           { label: ROUTE_LABELS.ALBUMS, path: ROUTES.ALBUMS },

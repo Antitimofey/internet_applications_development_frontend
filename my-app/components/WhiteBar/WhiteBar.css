@@ -1,0 +1,142 @@
+/* ================== white navbar ======================== */
+ .white-bar {
+  display: flex;
+  width: 1678px;
+  height: 65px;
+  align-items: center;
+  gap: 356px;
+  padding: 5px 130px 15px 145px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+ .dataset-market-logo {
+  position: relative;
+  width: 88px;
+  font-family: "Jim Nightshade-Regular", Helvetica;
+  font-weight: 400;
+  color: #de231e;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+ .finding-model-rect {
+  display: flex;
+  width: 590px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 6px 13px 6px 5px;
+  position: relative;
+  margin-top: -2.50px;
+  margin-bottom: -2.50px;
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #a7a7a7;
+}
+
+ .finding-model-input {
+  position: relative;
+  width: 525px;
+  height: 33px;
+  margin-top: -1.00px;
+  margin-left: -6.50px;
+  font-family: "Jomolhari-Regular", Helvetica;
+  color: #000000;
+  background-color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  border: none;
+  padding: 0;
+  outline: none; /* Убираем outline при фокусе */
+}
+
+ .finding-model-input:focus {
+  outline: none;
+}
+
+ .group {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  margin-right: -6.50px;
+  background-color: #de231e;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+ .group:hover:not(:disabled) {
+  background-color: #c41e1a;
+}
+
+ .group:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+ .magnifier-svg {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+ .goto-time-calc-div {
+  position: relative;
+  height: 47px;
+}
+
+ .time-calc-href {
+  position: absolute;
+  width: 53px;
+  height: 47px;
+  top: 0;
+  left: 2px;
+  text-decoration: none;
+  display: block;
+}
+
+ .basket-img {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: 0;
+  left: 11px;
+}
+
+ .basket-count {
+  position: absolute;
+  top: -4px;
+  right: 6px;
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ .time-calc-href-text {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  font-family: "Jomolhari-Regular", Helvetica;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+}

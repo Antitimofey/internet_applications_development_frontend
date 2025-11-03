@@ -4,8 +4,9 @@ import { Col, Row, Spinner } from 'react-bootstrap'
 import type { ITunesMusic } from '../../modules/itunesApi.ts'
 import { getMusicByName } from '../../modules/itunesApi.ts'
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs.tsx";
-import InputField from '../../components/InputField/InputField.tsx'
 import { MusicCard } from '../../components/MusicCard/MusicCard.tsx'
+import CustomNavbar from '../../components/Navbar/Navbar'
+import WhiteNavbar from '../../components/WhiteBar/WhiteBar.tsx'
 import './ITunesPage.css'
 
 import { ROUTES, ROUTE_LABELS } from "../../Routes.tsx";
@@ -47,14 +48,17 @@ const ITunesPage: FC = () => {
   };
 
   return (
-    <div className="container">
+    <div>
+      <CustomNavbar/>
+
       <BreadCrumbs crumbs={[{ label: ROUTE_LABELS.ALBUMS }]} />
-      
-      <InputField
-        value={searchValue}
-        setValue={(value) => setSearchValue(value)}
+
+      <WhiteNavbar 
+        searchValue={searchValue}
+        setSearchValue={(searchValue) => setSearchValue(searchValue)}
         loading={loading}
         onSubmit={handleSearch}
+        basketCount={'1'}
       />
 
       {loading && ( // здесь можно было использовать тернарный оператор, но это усложняет читаемость
