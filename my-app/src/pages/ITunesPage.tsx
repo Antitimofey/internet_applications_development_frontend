@@ -8,9 +8,10 @@ import InputField from '../../components/InputField/InputField.tsx'
 import { MusicCard } from '../../components/MusicCard/MusicCard.tsx'
 import './ITunesPage.css'
 
-
 import { ROUTES, ROUTE_LABELS } from "../../Routes.tsx";
 import { useNavigate } from "react-router-dom";
+
+import { SONGS_MOCK } from './../../modules/mock.ts'
 
 const ITunesPage: FC = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -27,14 +28,19 @@ const ITunesPage: FC = () => {
           response.results.filter((item) => item.wrapperType === "track")
         );
         setLoading(false);
+      })
+      .catch(() => { // В случае ошибки используем mock данные, фильтруем по имени
+        setMusic(
+          SONGS_MOCK.results.filter((item) =>
+            item.collectionCensoredName
+              .toLocaleLowerCase()
+              .startsWith(searchValue.toLocaleLowerCase())
+          )
+        );
+        setLoading(false);
       });
   };
 
-
-
-
-
-  
   const handleCardClick = (id: number) => {
     // клик на карточку, переход на страницу альбома
     navigate(`${ROUTES.ALBUMS}/${id}`);

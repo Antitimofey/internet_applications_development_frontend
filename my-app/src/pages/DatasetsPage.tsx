@@ -2,13 +2,14 @@ import "./AlbumPage.css";
 import type { FC } from 'react';
 import {useEffect, useState } from "react";
 import { Col, Row, Spinner, Image } from "react-bootstrap";
-import { ROUTES, ROUTE_LABELS } from "../../Routes";
+import { ROUTES, ROUTE_LABELS } from "../../Routes.tsx";
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs.tsx";
 import { useParams } from "react-router-dom";
-import type { ITunesMusic } from "../../modules/itunesApi";
-import { getAlbumById } from "../../modules/itunesApi";
+import type { ITunesMusic } from "../../modules/itunesApi.ts";
+import { getAlbumById } from "../../modules/itunesApi.ts";
 // import { ALBUMS_MOCK } from "../../modules/mock";
 import defaultImage from "../assets/default-img.jpg";
+import { SONGS_MOCK } from "../../modules/mock.ts";
 
 
 export const AlbumPage: FC = () => {
@@ -19,7 +20,15 @@ export const AlbumPage: FC = () => {
   useEffect(() => {
     if (!id) return;
     getAlbumById(id)
-      .then((response) => setPageDdata(response.results[0]));
+      .then((response) => setPageDdata(response.results[0]))
+      .catch(
+        () =>
+          setPageDdata(
+            SONGS_MOCK.results.find(
+              (album) => String(album.collectionId) == id
+            )
+          ) /* В случае ошибки используем мок данные, фильтруем по ид */
+      );
   }, [id]);
 
   return (

@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { Button, Card } from 'react-bootstrap'
 import './MusicCard.css'
+import defaultImage from '../../src/assets/default-img.jpg'
 
 interface ICardProps {
   artworkUrl100: string;
@@ -23,7 +24,7 @@ export const MusicCard: FC<ICardProps> = ({
       <Card.Img
         className="cardImage"
         variant="top"
-        src={artworkUrl100}
+        src={artworkUrl100 || defaultImage}
         height={100}
         width={100}
         onClick={imageClickHandler}

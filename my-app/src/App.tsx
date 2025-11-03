@@ -5,7 +5,7 @@ import { ROUTES } from "./../Routes";
 
 import { HomePage } from './pages/HomePage.tsx'
 import ITunesPage from './pages/ITunesPage.tsx'
-import AlbumPage from "./pages/AlbumPage.tsx";
+import AlbumPage from "./pages/DatasetsPage.tsx";
 
 function App() {
   return (

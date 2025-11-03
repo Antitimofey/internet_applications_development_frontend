@@ -1,0 +1,15 @@
+.full-page-container {
+    padding: 0 !important;
+}
+
+
+.dataset-market-logo {
+  position: relative;
+  width: 88px;
+  font-family: "Jim Nightshade-Regular", Helvetica;
+  font-weight: 400;
+  color: #de231e;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}

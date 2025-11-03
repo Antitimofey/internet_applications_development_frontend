@@ -1,4 +1,4 @@
-import { ITunesResult } from "./itunesApi.ts";
+import type { ITunesResult } from "./itunesApi.ts";
 
 export const SONGS_MOCK: ITunesResult = {
   resultCount: 3, 
