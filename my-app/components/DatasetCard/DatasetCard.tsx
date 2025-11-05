@@ -25,7 +25,6 @@ interface DatasetCardProps {
 
 const DatasetCard: FC<DatasetCardProps> = ({ 
   dataset, 
-  cardIndex = 0,
   onAddToCart 
 }) => {
   const handleAddToCart = () => {

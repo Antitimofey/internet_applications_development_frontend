@@ -2,7 +2,7 @@ import type { FC } from 'react'
 import { useEffect, useState } from 'react'
 import { Col, Row, Spinner, Container } from 'react-bootstrap'
 import type { Dataset } from "../../components/DatasetCard/DatasetCard.tsx";
-import { getDatasets } from '../../modules/itunesApi.ts'
+import { getBasketIcon, getDatasets } from '../../modules/itunesApi.ts'
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs.tsx";
 import DatasetCard from '../../components/DatasetCard/DatasetCard.tsx'
 import CustomNavbar from '../../components/Navbar/Navbar.tsx'
@@ -18,12 +18,14 @@ const DatasetListPage: FC = () => {
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [datasets, setDatasets] = useState<Dataset[]>([]);
+  const [basketCount, setBasketCount] = useState(0);
 
   const navigate = useNavigate();
 
  // Автоматическая загрузка датасетов при монтировании компонента
   useEffect(() => {
     loadInitialDatasets();
+    loadBasket();
   }, []); // Пустой массив зависимостей = выполнится только при монтировании
 
   // Функция для первоначальной загрузки всех датасетов
@@ -41,6 +43,18 @@ const DatasetListPage: FC = () => {
       setLoading(false);
     }
   };
+
+  // Загружаем данные корзины при монтировании компонента
+  const loadBasket = async () => {
+    try {
+      const basketData = await getBasketIcon();
+      setBasketCount(basketData.datasets_count);
+    } catch (error) {
+      console.error('Error loading basket:', error);
+      setBasketCount(0); // Fallback
+    }
+  };
+
 
 
   const handleDatasetsSearch = () => {
@@ -74,7 +88,7 @@ const DatasetListPage: FC = () => {
         setSearchValue={(searchValue) => setSearchValue(searchValue)}
         loading={loading}
         onSubmit={handleDatasetsSearch}
-        basketCount={1}
+        basketCount={basketCount}
       />
 
       {loading && ( // здесь можно было использовать тернарный оператор, но это усложняет читаемость
@@ -94,7 +108,6 @@ const DatasetListPage: FC = () => {
                 <Col key={index}>
                   <DatasetCard
                     dataset={item}
-                    cardIndex={index}
                     onAddToCart={() => {}}
                   />
                 </Col>

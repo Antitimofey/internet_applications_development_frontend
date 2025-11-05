@@ -12,6 +12,11 @@ export interface ITunesResult {
     results: ITunesMusic[]
 }
 
+export interface BasketIcon {
+    aimodel_id: number,
+    datasets_count: number,
+}
+
 export const getMusicByName = async (name = ""): Promise<ITunesResult> => {
   return fetch(`https://itunes.apple.com/search?term=${name}`)
   .then((response) => response.json());
@@ -25,6 +30,17 @@ export const getAlbumById = async (
   );
 };
 
+export const getBasketIcon = async (): Promise<BasketIcon> => {
+  return fetch(`${API_BASE}/aimodel/basket-icon/`)
+    .then(response => response.json())
+    .catch((error) => {
+      console.error('Error fetching basket icon:', error);
+      return {
+        aimodel_id: 0, 
+        datasets_count: 0,
+      };
+    });
+};
 
 
 // =============================  datasetsApi.ts  ==================================
