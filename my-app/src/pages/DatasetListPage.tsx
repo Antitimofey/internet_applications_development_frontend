@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import { useEffect, useState } from 'react'
 import { Col, Row, Spinner, Container } from 'react-bootstrap'
-import type { Dataset } from "../../components/DatasetCard/DatasetCard.tsx";
+// import type { Dataset } from "../../components/DatasetCard/DatasetCard.tsx";
 import { getBasketIcon, getDatasets } from '../../modules/itunesApi.ts'
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs.tsx";
 import DatasetCard from '../../components/DatasetCard/DatasetCard.tsx'
@@ -14,11 +14,21 @@ import { useNavigate } from "react-router-dom";
 
 import { DATASETS_MOCK} from '../../modules/datasetMock.ts'
 
+// ДОБАВЬТЕ эти импорты
+import { useDispatch } from 'react-redux'
+import { useDatasets, setDatasetsAction, useSearchValue, setSearchValueAction } from '../../slices/dataSlice'
+
 const DatasetListPage: FC = () => {
-  const [searchValue, setSearchValue] = useState("");
+  // const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [datasets, setDatasets] = useState<Dataset[]>([]);
+  // const [datasets, setDatasets] = useState<Dataset[]>([]);
   const [basketCount, setBasketCount] = useState(0);
+
+  // ДОБАВЬТЕ эти строки
+  const dispatch = useDispatch();
+  const datasets = useDatasets(); // Получаем датасеты из Redux
+  const searchValue = useSearchValue(); // ← ДОБАВЬТЕ получение searchValue из Redux
+
 
   const navigate = useNavigate();
 
@@ -33,12 +43,12 @@ const DatasetListPage: FC = () => {
     setLoading(true);
     try {
       const response = await getDatasets(); // Без параметров = все датасеты
-      setDatasets(response || response); // В зависимости от структуры ответа
+      dispatch(setDatasetsAction(response || response)); // Сохраняем в Redux
       console.log('Initial datasets loaded:', response);
     } catch (error) {
       console.error('Error loading initial datasets, using mock data:', error);
       // Используем mock данные при ошибке
-      setDatasets(DATASETS_MOCK || DATASETS_MOCK);
+      dispatch(setDatasetsAction(DATASETS_MOCK || DATASETS_MOCK)); // Сохраняем mock в Redux
     } finally {
       setLoading(false);
     }
@@ -61,15 +71,20 @@ const DatasetListPage: FC = () => {
     setLoading(true);
     getDatasets(searchValue)
       .then((response) => {
-        setDatasets(response);
+        dispatch(setDatasetsAction(response)); // Сохраняем результаты поиска в Redux
         setLoading(false);
         console.log(searchValue)
         console.log(response)
       })
       .catch(() => { // В случае ошибки используем mock данные, фильтруем по имени
-        setDatasets(DATASETS_MOCK);
+        dispatch(setDatasetsAction(DATASETS_MOCK)); // Сохраняем mock в Redux
         setLoading(false);
       });
+  };
+
+  // ДОБАВЬТЕ функцию для обновления searchValue в Redux
+  const handleSetSearchValue = (value: string) => {
+    dispatch(setSearchValueAction(value));
   };
 
   const handleCardClick = (id: number) => {
@@ -85,7 +100,7 @@ const DatasetListPage: FC = () => {
 
       <WhiteNavbar 
         searchValue={searchValue}
-        setSearchValue={(searchValue) => setSearchValue(searchValue)}
+        setSearchValue={handleSetSearchValue}
         loading={loading}
         onSubmit={handleDatasetsSearch}
         basketCount={basketCount}

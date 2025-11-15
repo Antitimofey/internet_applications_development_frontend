@@ -3,6 +3,8 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store"; // Импортируйте RootState из store
 
+import type { Dataset } from "../components/DatasetCard/DatasetCard";
+
 // Определите тип для данных
 interface DataItem {
   // добавьте поля ваших данных
@@ -10,25 +12,19 @@ interface DataItem {
   // ... другие поля
 }
 
-// Определите тип для датасета
-interface Dataset {
-  id: string | number;
-  name: string;
-  data: DataItem[];
-  createdAt?: string;
-}
-
 // ОБНОВИТЕ интерфейс состояния
 interface DataState {
   Data: DataItem[];
   datasets: Dataset[];  // ← ДОБАВЬТЕ эту строку
+  searchValue: string;  // ← ДОБАВЬТЕ эту строку
 }
 
 
 // ОБНОВИТЕ начальное состояние
 const initialState: DataState = {
   Data: [],
-  datasets: []  // ← ДОБАВЬТЕ эту строку
+  datasets: [],  // ← ДОБАВЬТЕ эту строку
+  searchValue: ""
 }
 
 const dataSlice = createSlice({
@@ -53,6 +49,13 @@ const dataSlice = createSlice({
         },
         setDatasets(state, action: PayloadAction<Dataset[]>) {
             state.datasets = action.payload
+        },
+        // ДОБАВЬТЕ редюсер для поисковой строки
+        setSearchValue(state, action: PayloadAction<string>) {
+            state.searchValue = action.payload
+        },
+        clearSearchValue(state) {
+            state.searchValue = ""
         }
     }
 })
@@ -63,14 +66,18 @@ export const useData = () =>
 export const useDatasets = () =>
     useSelector((state: RootState) => state.ourData.datasets)  // ← ДОБАВЬТЕ этот хук
 
+export const useSearchValue = () =>
+    useSelector((state: RootState) => state.ourData.searchValue)  // ← ДОБАВЬТЕ этот хук
 
 // ОБНОВИТЕ экспорт actions
 export const {
     setData: setDataAction,
-    addDataset: addDatasetAction,        // ← ДОБАВЬТЕ
-    removeDataset: removeDatasetAction,  // ← ДОБАВЬТЕ
-    updateDataset: updateDatasetAction,  // ← ДОБАВЬТЕ
-    setDatasets: setDatasetsAction       // ← ДОБАВЬТЕ
+    addDataset: addDatasetAction,
+    removeDataset: removeDatasetAction,
+    updateDataset: updateDatasetAction,
+    setDatasets: setDatasetsAction,
+    setSearchValue: setSearchValueAction,
+    clearSearchValue: clearSearchValueAction,
 } = dataSlice.actions
 
 export default dataSlice.reducer
