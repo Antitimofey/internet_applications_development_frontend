@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     const swPath = import.meta.env.PROD 
-      ? '/internet_applications_development_frontend/serviceWorker.js'
+      ? '/internet_applications_development_frontend/my-app/serviceWorker.js'
       : '/serviceWorker.js';
     
     navigator.serviceWorker
