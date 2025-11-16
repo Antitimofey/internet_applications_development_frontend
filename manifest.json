@@ -5,5 +5,13 @@
   "display": "standalone",
   "background_color": "#fdfdfd",
   "theme_color": "#db4938",
-  "orientation": "portrait-primary"
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/internet_applications_development_frontend/logo.png",
+      "type": "image/png",
+      "sizes": "255x255",
+      "purpose": "any"
+    }
+  ]
 }
