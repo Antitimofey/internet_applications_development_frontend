@@ -23,9 +23,13 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 )
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
+    const swPath = import.meta.env.PROD 
+      ? '/internet_applications_development_frontend/serviceWorker.js'
+      : '/serviceWorker.js';
+    
     navigator.serviceWorker
-      .register("/serviceWorker.js")
-      .then(res => console.log("service worker registered", res))
+      .register(swPath)
+      .then(() => console.log("service worker registered"))
       .catch(err => console.log("service worker not registered", err))
   })
 }
