@@ -23,13 +23,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 )
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
-    const swPath = import.meta.env.PROD 
-      ? '/internet_applications_development_frontend/my-app/serviceWorker.js'
-      : '/serviceWorker.js';
+    // Для GitHub Pages используем правильный путь
+    const swUrl = '/internet_applications_development_frontend/serviceWorker.js';
     
     navigator.serviceWorker
-      .register(swPath)
-      .then(() => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err))
+      .register(swUrl)
+      .then(() => console.log("Service worker registered"))
+      .catch(err => console.log("Service worker not registered", err))
   })
 }
