@@ -3,6 +3,9 @@ import type { FC, FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './WhiteBar.css';
 
+import magnifierSvg from "../../src/assets/magnifier.svg";
+import basketSvg from "../../src/assets/basket.svg";
+
 
 
 
@@ -60,7 +63,7 @@ const WhiteNavbar: FC<WhiteNavbarProps> = ({
         >
           <img 
             className="magnifier-svg" 
-            src="../../src/assets/magnifier.svg" 
+            src={magnifierSvg}
             alt="Поиск" 
           />
         </button>
@@ -79,7 +82,7 @@ const WhiteNavbar: FC<WhiteNavbarProps> = ({
         >
           <img 
             className="basket-img" 
-            src="../../src/assets/basket.svg" 
+            src={basketSvg}
             alt="Корзина" 
           />
           {basketCount > 0 && (
@@ -93,142 +96,3 @@ const WhiteNavbar: FC<WhiteNavbarProps> = ({
 };
 
 export default WhiteNavbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// interface WhiteNavbarProps {
-//   currentUserId?: string;
-//   showSearchAndCart: boolean;  // Булевый флаг вместо {% if %}
-//   basketCount?: number;
-//   initialSearchValue?: string;
-// }
-
-// const WhiteNavbar: FC<WhiteNavbarProps> = ({ 
-//   currentUserId, 
-//   showSearchAndCart, 
-//   basketCount = 0, 
-//   initialSearchValue = '' 
-// }) => {
-//   const navigate = useNavigate();
-  
-//   const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-//     const formData = new FormData(e.currentTarget);
-//     const searchValue = formData.get('search-model') as string;
-    
-//     // Навигация с поисковым параметром
-//     if (currentUserId) {
-//       navigate(`/ai-market-idx/${currentUserId}?search=${encodeURIComponent(searchValue)}`);
-//     } else {
-//       navigate(`/?search=${encodeURIComponent(searchValue)}`);
-//     }
-//   };
-
-//   const isCartDisabled = basketCount === 0;
-
-//   return (
-//     <Container fluid className="white-bar">
-//       <h1 className="dataset-market-logo">
-//         N.ВИДЕО
-//       </h1>
-      
-//       {showSearchAndCart && (
-//         <>
-//           <Form 
-//             className="finding-model-rect" 
-//             role="search" 
-//             onSubmit={handleSearchSubmit}
-//           >
-//             <Form.Control
-//               type="search"
-//               id="search-input"
-//               className="finding-model-input"
-//               name="search-model"
-//               placeholder="Искать по названию"
-//               aria-label="Поиск по названию"
-//               defaultValue={initialSearchValue}
-//             />
-//             <Button 
-//               type="submit"
-//               className="group"
-//               aria-label="Поиск"
-//               variant="link"
-//             >
-//               <img 
-//                 className="magnifier-svg" 
-//                 src="../../src/assets/magnifier.svg" 
-//                 alt="Поиск" 
-//               />
-//             </Button>
-//           </Form>
-          
-//           <div className="goto-time-calc-div">
-//             <Link 
-//               to={currentUserId ? `/time-calc-idx/${currentUserId}` : '#'}
-//               className="time-calc-href"
-//               aria-label="Корзина"
-//               style={isCartDisabled ? {
-//                 cursor: 'not-allowed',
-//                 pointerEvents: 'none',
-//                 opacity: 0.6
-//               } : undefined}
-//             >
-//               <img 
-//                 className="basket-img" 
-//                 src="../../src/assets/basket.svg" 
-//                 alt="Корзина" 
-//               />
-//               {basketCount > 0 && (
-//                 <span className="basket-count">{basketCount}</span>
-//               )}
-//               <span className="time-calc-href-text">Корзина</span>
-//             </Link>
-//           </div>
-//         </>
-//       )}
-//     </Container>
-//   );
-// };
-
-// export default WhiteNavbar;
-
-
-
-
