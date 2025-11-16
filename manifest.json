@@ -1,0 +1,15 @@
+{
+  "name": "N.ВИДЕО",
+  "short_name": "N.ВИДЕО",
+  "start_url": "/internet_applications_development_frontend/",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#db4938",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.jpeg",
+      "type": "image/jpeg", "sizes": "255x255"
+    }
+  ]
+}
