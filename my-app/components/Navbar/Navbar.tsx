@@ -10,10 +10,17 @@ interface CustomNavbarProps {
 const CustomNavbar: FC<CustomNavbarProps> = () => {
   return (
     
-    <Navbar className="black-bar" expand="lg">
+    <Navbar className="black-bar">
       <Container fluid>
         <Navbar.Collapse className="justify-content-end">
           <Nav>
+            <Nav.Link 
+              as={Link} 
+              to={ROUTES.DATASETS}
+              className="text-wrapper"
+            >
+              Модели
+            </Nav.Link>
             <Nav.Link 
               as={Link} 
               to={ROUTES.HOME}

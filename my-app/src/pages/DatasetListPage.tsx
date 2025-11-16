@@ -118,10 +118,10 @@ const DatasetListPage: FC = () => {
             <h1>К сожалению, пока ничего не найдено :(</h1>
           </div>
         ) : (
-          <Container fluid="md" className="px-4"> {/* или fluid="lg" */}
-            <Row xs={1} md={2} lg={3} xl={3} className="g-4">
+          <Container fluid="md" className="px-4">
+            <Row xs={1} md={2} lg={3} xl={3} className="g-4 justify-content-center">
               {datasets.map((item, index) => (
-                <Col key={index}>
+                <Col key={index} className="d-flex justify-content-center">
                   <DatasetCard
                     dataset={item}
                     onAddToCart={() => {}}

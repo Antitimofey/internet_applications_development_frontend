@@ -1,11 +1,10 @@
 /* ================== white navbar ======================== */
  .white-bar {
   display: flex;
-  width: 1678px;
   height: 65px;
   align-items: center;
-  gap: 356px;
-  padding: 5px 130px 15px 145px;
+  justify-content: space-between; /* или center, space-around */
+  padding: 5px 10px 15px 10px;
   position: relative;
   background-color: #ffffff;
 }
@@ -23,9 +22,9 @@
 
  .finding-model-rect {
   display: flex;
-  width: 590px;
+  width: 50%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
   padding: 6px 13px 6px 5px;
   position: relative;
@@ -39,7 +38,7 @@
 
  .finding-model-input {
   position: relative;
-  width: 525px;
+  width: 160px;
   height: 33px;
   margin-top: -1.00px;
   margin-left: -6.50px;
@@ -51,7 +50,7 @@
   letter-spacing: 0;
   line-height: normal;
   border: none;
-  padding: 0;
+  padding-left: 5px;
   outline: none; /* Убираем outline при фокусе */
 }
 
@@ -93,6 +92,7 @@
  .goto-time-calc-div {
   position: relative;
   height: 47px;
+  width: 53px;
 }
 
  .time-calc-href {

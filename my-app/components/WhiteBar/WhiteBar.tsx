@@ -30,10 +30,12 @@ const WhiteNavbar: FC<WhiteNavbarProps> = ({
 
   return (
     <section className="white-bar">
-      <h1 className="dataset-market-logo">
-        N.ВИДЕО
-      </h1>
-      
+      <div>
+        <h1 className="dataset-market-logo">
+          N.ВИДЕО
+        </h1>
+      </div>
+    
       <form 
         className="finding-model-rect" 
         role="search" 
