@@ -9,6 +9,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: "/internet_applications_development_frontend",
   server: {
     port: 3000,
     proxy: {

@@ -1,0 +1,10 @@
+# Файлы сборки
+dist/
+dist-ssr/
+*.tgz
+
+# Также обычно игнорируют
+node_modules/
+.env
+.env.local
+.DS_Store

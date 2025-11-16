@@ -9,8 +9,9 @@ import CustomNavbar from '../../components/Navbar/Navbar.tsx'
 import WhiteNavbar from '../../components/WhiteBar/WhiteBar.tsx'
 import './DatasetListPage.css'
 
-import { ROUTES, ROUTE_LABELS } from "../../Routes.tsx";
-import { useNavigate } from "react-router-dom";
+// import { ROUTES } from "../../Routes.tsx";
+import { ROUTE_LABELS } from "../../Routes.tsx";
+// import { useNavigate } from "react-router-dom";
 
 import { DATASETS_MOCK} from '../../modules/datasetMock.ts'
 
@@ -30,7 +31,7 @@ const DatasetListPage: FC = () => {
   const searchValue = useSearchValue(); // ← ДОБАВЬТЕ получение searchValue из Redux
 
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
  // Автоматическая загрузка датасетов при монтировании компонента
   useEffect(() => {
@@ -87,10 +88,10 @@ const DatasetListPage: FC = () => {
     dispatch(setSearchValueAction(value));
   };
 
-  const handleCardClick = (id: number) => {
-    // клик на карточку, переход на страницу альбома
-    navigate(`${ROUTES.DATASETS}/${id}`);
-  };
+  // const handleCardClick = (id: number) => {
+  //   // клик на карточку, переход на страницу альбома
+  //   navigate(`${ROUTES.DATASETS}/${id}`);
+  // };
 
   return (
     <div>
