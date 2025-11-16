@@ -57,7 +57,7 @@ const WhiteNavbar: FC<WhiteNavbarProps> = ({
         >
           <img 
             className="magnifier-svg" 
-            src='/magnifier.svg'
+            src='/internet_applications_development_frontend/magnifier.svg'
             alt="Поиск" 
           />
         </button>
@@ -76,7 +76,7 @@ const WhiteNavbar: FC<WhiteNavbarProps> = ({
         >
           <img 
             className="basket-img" 
-            src='/basket.svg'
+            src='/internet_applications_development_frontend/basket.svg'
             alt="Корзина" 
           />
           {basketCount > 0 && (
