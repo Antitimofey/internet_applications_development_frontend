@@ -7,7 +7,7 @@ import DatasetPage from "./pages/DatasetPage.tsx";
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.PROD ? '/internet_applications_development_frontend' : ''}>
+    <BrowserRouter basename='/internet_applications_development_frontend'>
       <Routes>
         <Route path={ROUTES.HOME} index element={<HomePage />} />
         <Route path={ROUTES.DATASETS} element={<DatasetListPage />} />

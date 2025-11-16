@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     // Для GitHub Pages используем правильный путь
-    const swUrl = '/internet_applications_development_frontend/serviceWorker.js';
+    const swUrl = '/serviceWorker.js';
     
     navigator.serviceWorker
       .register(swUrl)
