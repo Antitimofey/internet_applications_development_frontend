@@ -48,7 +48,8 @@ export const getBasketIcon = async (): Promise<BasketIcon> => {
 import type { Dataset } from "../components/DatasetCard/DatasetCard";
 
 // Базовый URL для API (будет проксироваться через Vite)
-const API_BASE = '/api';
+// const API_BASE = '/api';
+const API_BASE = 'http://localhost:8000/api';
 
 
 export const getDatasets = async (name = ""): Promise<Dataset[]> => {

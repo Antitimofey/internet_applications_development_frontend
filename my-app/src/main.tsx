@@ -21,14 +21,14 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </Provider>
   </React.StrictMode>,
 )
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    // Для GitHub Pages используем правильный путь
-    const swUrl = '/serviceWorker.js';
+// if ("serviceWorker" in navigator) {
+//   window.addEventListener("load", function() {
+//     // Для GitHub Pages используем правильный путь
+//     const swUrl = '/serviceWorker.js';
     
-    navigator.serviceWorker
-      .register(swUrl)
-      .then(() => console.log("Service worker registered"))
-      .catch(err => console.log("Service worker not registered", err))
-  })
-}
+//     navigator.serviceWorker
+//       .register(swUrl)
+//       .then(() => console.log("Service worker registered"))
+//       .catch(err => console.log("Service worker not registered", err))
+//   })
+// }
