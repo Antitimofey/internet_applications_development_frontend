@@ -37,7 +37,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter basename={import.meta.env.PROD ? '/internet_applications_development_frontend' : ''}>
+    <BrowserRouter basename="">
       <Routes>
         <Route path={ROUTES.HOME} index element={<HomePage />} />
         <Route path={ROUTES.DATASETS} element={<DatasetListPage />} />
