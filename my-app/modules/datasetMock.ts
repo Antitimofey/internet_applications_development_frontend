@@ -1,22 +1,21 @@
 // modules/mock.ts
 import type { Dataset } from "../components/DatasetCard/DatasetCard";
 
+// import ResNet_50_and_CIFAR_10 from "../src/assets/dataset-imgs/ResNet-50 and CIFAR-10.png"
+import ResNet_50_and_ImageNet_1k from "../src/assets/dataset-imgs/ResNet-50 and ImageNet-1k.png"
+import ViT_Base_16_and_CIFAR_10 from "../src/assets/dataset-imgs/ViT-Base_16 and CIFAR-10.png"
+import ViT_Base_16_and_ImageNet_1k from "../src/assets/dataset-imgs/ViT-Base_16 and ImageNet-1k.png"
+import YOLOv5m_and_COCO from "../src/assets/dataset-imgs/YOLOv5m and COCO.png"
+import YOLOv5s_and_COCO from "../src/assets/dataset-imgs/YOLOv5s and COCO.png"
+
 export const DATASETS_MOCK: Dataset[] = [
-{
-    id: 0,
-    label: "None",
-    benchmark_performance: 0,
-    dataset_size: 0,
-    is_active: true,
-    img: ""
-},
-{
-    id: 1,
+    {
+        id: 1,
     label: "ResNet-50 and ImageNet-1k",
     benchmark_performance: 1050,
     dataset_size: 1281167,
     is_active: true,
-    img: "http://localhost:9000/datasets/images/2025/11/03/bef5ca1f-bebe-4805-aeae-5af02d3fc81a.png"
+    img: ResNet_50_and_ImageNet_1k
 },
 {
     id: 2,
@@ -24,7 +23,7 @@ export const DATASETS_MOCK: Dataset[] = [
     benchmark_performance: 220,
     dataset_size: 330000,
     is_active: true,
-    img: "http://localhost:9000/datasets/images/2025/11/03/2ac5c2e8-e8a5-4b06-b175-78257139c72c.png"
+    img: YOLOv5s_and_COCO
 },
 {
     id: 3,
@@ -32,7 +31,7 @@ export const DATASETS_MOCK: Dataset[] = [
     benchmark_performance: 125,
     dataset_size: 330000,
     is_active: true,
-    img: "http://localhost:9000/datasets/images/2025/11/03/df94a3a9-f7c2-41e5-a6b9-523c402c671f.png"
+    img: YOLOv5m_and_COCO
 },
 {
     id: 4,
@@ -40,7 +39,7 @@ export const DATASETS_MOCK: Dataset[] = [
     benchmark_performance: 1950,
     dataset_size: 60000,
     is_active: true,
-    img: ""
+    img: ViT_Base_16_and_CIFAR_10
 },
 {
     id: 5,
@@ -48,6 +47,14 @@ export const DATASETS_MOCK: Dataset[] = [
     benchmark_performance: 850,
     dataset_size: 1281167,
     is_active: true,
+    img: ViT_Base_16_and_ImageNet_1k
+},
+{
+    id: 0,
+    label: "new_dataset",
+    benchmark_performance: 0,
+    dataset_size: 0,
+    is_active: true,
     img: ""
-}
+},
 ];

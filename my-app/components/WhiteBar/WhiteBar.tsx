@@ -3,6 +3,9 @@ import type { FC, FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './WhiteBar.css';
 
+import basket from "../../src/assets/basket.svg"
+import magnifier from "../../src/assets/magnifier.svg"
+
 
 interface WhiteNavbarProps {
   searchValue: string;
@@ -59,7 +62,7 @@ const WhiteNavbar: FC<WhiteNavbarProps> = ({
         >
           <img 
             className="magnifier-svg" 
-            src='/internet_applications_development_frontend/magnifier.svg'
+            src={magnifier}
             alt="Поиск" 
           />
         </button>
@@ -78,7 +81,7 @@ const WhiteNavbar: FC<WhiteNavbarProps> = ({
         >
           <img 
             className="basket-img" 
-            src='/internet_applications_development_frontend/basket.svg'
+            src={basket}
             alt="Корзина" 
           />
           {basketCount > 0 && (

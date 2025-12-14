@@ -17,21 +17,21 @@ export interface BasketIcon {
     datasets_count: number,
 }
 
-export const getMusicByName = async (name = ""): Promise<ITunesResult> => {
-  return fetch(`https://itunes.apple.com/search?term=${name}`)
-  .then((response) => response.json());
-};
+// export const getMusicByName = async (name = ""): Promise<ITunesResult> => {
+//   return fetch(`https://itunes.apple.com/search?term=${name}`)
+//   .then((response) => response.json());
+// };
 
-export const getAlbumById = async (
-  id: number | string
-): Promise<ITunesResult> => {
-  return fetch(`https://itunes.apple.com/lookup?id=${id}`).then(
-    (response) => response.json()
-  );
-};
+// export const getAlbumById = async (
+//   id: number | string
+// ): Promise<ITunesResult> => {
+//   return fetch(`https://itunes.apple.com/lookup?id=${id}`).then(
+//     (response) => response.json()
+//   );
+// };
 
 export const getBasketIcon = async (): Promise<BasketIcon> => {
-  return fetch(`${API_BASE}/aimodel/basket-icon/`)
+  return fetch(`/api/aimodel/basket-icon/`)
     .then(response => response.json())
     .catch((error) => {
       console.error('Error fetching basket icon:', error);
@@ -45,21 +45,17 @@ export const getBasketIcon = async (): Promise<BasketIcon> => {
 
 // =============================  datasetsApi.ts  ==================================
 
+// src/modules/datasetsApi.ts
 import type { Dataset } from "../components/DatasetCard/DatasetCard";
-
-// Базовый URL для API (будет проксироваться через Vite)
-const API_BASE = '/api';
-
+import { apiGet } from "./api"; // Импортируем новую функцию
 
 export const getDatasets = async (name = ""): Promise<Dataset[]> => {
-  return fetch(`${API_BASE}/datasets/?search-model=${name}`)
-  .then((response) => response.json());
+  const params = name ? { "search-model": name } : undefined;
+  return apiGet<Dataset[]>('/api/datasets/', params);
 };
 
 export const getDatasetById = async (
   id: number | string
 ): Promise<Dataset> => {
-  return fetch(`${API_BASE}/datasets/${id}/`).then(
-    (response) => response.json()
-  );
+  return apiGet<Dataset>(`/api/datasets/${id}/`);
 };
